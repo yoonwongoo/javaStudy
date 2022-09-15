@@ -25,9 +25,28 @@ public class FindLongestStr {
     }
 
 
-    public String solution1(){
+    public String solution1(String s){
+        String answer = "";
+        int m = Integer.MIN_VALUE;
+        int posIndex = 0;
 
-        return null;
+        while((posIndex = s.indexOf(' '))!=-1){
+            String temp = s.substring(0,posIndex);
+            int length = temp.length();
+
+            if(length > m){
+                m=length;
+                answer = temp;
+              
+            }
+
+           s= s.substring(posIndex+1);
+        }
+        if(s.length()>m){
+            answer = s;
+        }
+
+        return answer;
     }
 
     public static void main(String[] args) throws IOException {
@@ -35,7 +54,8 @@ public class FindLongestStr {
 
 
         FindLongestStr fStr = new FindLongestStr();
-        System.out.println(fStr.solution(br.readLine()));
+      //  System.out.println(fStr.solution(br.readLine()));
+        System.out.println(fStr.solution1(br.readLine()));
 
     }
 }
