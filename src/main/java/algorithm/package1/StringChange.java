@@ -1,10 +1,9 @@
-package main.java.algorithm;
+package main.java.algorithm.package1;
 
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 //소문자를 대문자 대문자를 소문자로 변화하여 출력
 public class StringChange {
