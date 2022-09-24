@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 //25
-//배열을 합친후 오름차순.
+//배열을 합친후 오름차순.(Two pointers algorithm)
 
 public class Main25 {
 
