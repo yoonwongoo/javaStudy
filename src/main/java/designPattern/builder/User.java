@@ -40,23 +40,23 @@ public class User {
         private int age;//선택
         private String gender; //선택
 
-        public UserBuilder(String userName, String phoneNumber){
-            this.userName=userName;
-            this.phoneNumber=phoneNumber;
-        }
+    public UserBuilder(String userName, String phoneNumber){
+        this.userName=userName;
+        this.phoneNumber=phoneNumber;
+    }
 
-        public UserBuilder age(int age){
-            this.age=age;
-            return this;
-        }
+    public UserBuilder age(int age){
+        this.age=age;
+        return this;
+    }
 
-        public UserBuilder gender(String gender){
+    public UserBuilder gender(String gender){
             this.gender=gender;
             return this;
-        }
-        public User build(){
-            return new User(this);
-        }
+    }
+    public User build(){
+        return new User(this);
+    }
 
 
     }
