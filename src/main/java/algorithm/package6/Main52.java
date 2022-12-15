@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 //삽입정렬 오름차순
-//들어온 배열의 한 칸 뒤에서 부터 기준점을 정해서 비교
+//들어온 배열의 한 칸 뒤에서 부터 기준점을 정해서 비교 swap보단 뒤로 미는거
 public class Main52 {
 
 

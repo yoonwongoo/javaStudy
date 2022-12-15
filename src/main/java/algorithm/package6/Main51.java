@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 //버블정렬 오름차순
+//횟수가 줄어들어야한다.
 //큰 수가 제일 뒤로 계속 간다
 public class Main51 {
 
