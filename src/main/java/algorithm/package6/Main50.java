@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 
 //선택정렬 오름차순
 //반복은 하지만 버블정렬처럼 바로 옆값을 확인을 반복하는게 아니라 idx와 비교
+//작은값을 찾아라 그것을 idx넣고 비교
 public class Main50 {
 
 
