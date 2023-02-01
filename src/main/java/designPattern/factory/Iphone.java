@@ -1,24 +1,9 @@
 package main.java.designPattern.factory;
 
-public class Iphone implements Phone{
-    private String phoneName;
-    private String PhoneMemory;
-
-
-    public Iphone(String phoneName, String phoneMemory) {
-        this.phoneName = phoneName;
-        this.PhoneMemory = phoneMemory;
-    }
-
+public class Iphone implements Item{
     @Override
-    public String getPhoneName() {
-        return this.phoneName;
+    public void use() {
 
-    }
-
-    @Override
-    public String getPhoneMemory() {
-        return this.PhoneMemory;
-
+        System.out.println("Iphone 사용한다");
     }
 }

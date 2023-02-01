@@ -1,25 +1,8 @@
 package main.java.designPattern.factory;
 
-public class SamsungPhone implements Phone{
-
-    private String phoneName;
-    private String PhoneMemory;
-
-    public SamsungPhone(String phoneName, String phoneMemory) {
-        this.phoneName = phoneName;
-        PhoneMemory = phoneMemory;
-    }
-
-
+public class SamsungPhone implements Item{
     @Override
-    public String getPhoneName() {
-            return this.phoneName;
+    public void use() {
+        System.out.println("SamsungPhone 사용한다");
     }
-
-    @Override
-    public String getPhoneMemory() {
-        return this.PhoneMemory;
-    }
-
-
 }

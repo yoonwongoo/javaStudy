@@ -16,7 +16,7 @@ public class Main50 {
     public int[] solution(int n, int[] arr){
 
 
-        for(int i=0;i<n-1;i++){
+        for(int i=0; i<n-1; i++){
             int idx = i;
 
             for(int j=idx+1; j<n; j++){
