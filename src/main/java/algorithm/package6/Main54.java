@@ -6,101 +6,57 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-//중복확인
-/*n명이 중복?D:U
-
-입력예시
-8
-20 25 52 30 39 33 43 33
-
-출력예시
-D
-*/
-
+//LRU 알고리즘은 Least Recently Used
 public class Main54 {
+    
+    
+    public int[] solution(int n, int m, int arr[]){
+        //m=횟수 만큼 실행
+        //매개변수로 받은 arr[]은 캐시가 실행될 메모리 넘버링이 있다.
+        int[] cashArr = new int[n];
+        for(int x : arr) {
+            int cash =-1;
+            for(int i=0; i<n; i++)
+                //cashHit==캐시안에 같은 값이 있는 경우
+                if(x==cashArr[i])
+                    cash=i;// 같은 값이 있는 경우 그 자리값을 넣어놓는다
 
-
-
-
-    public static String solution(int n,int[] arr){
-        Arrays.sort(arr);
-
-
-       /*
-       선택정렬
-       for(int i =0; i<n; i++) {
-            int idx= i;
-            for (int j = idx + 1; j < n; j++) {
-                if (arr[idx] > arr[j]) {
-                    idx = j;
+            //cashMiss==캐시안에 값은 값이 없는 경우
+            if(cash==-1) {
+                for (int i = n - 1; i >= 1; i--) {
+                    cashArr[i] = cashArr[i-1];
                 }
+            }else{
+                //hit가 발생한 지점까지 밀어주자 그 뒤에 있는 경우는 가만히 있어도됨.
+                for (int i = cash; i >= 1; i--) {
+                      cashArr[i] = cashArr[i-1];
+                  }
             }
-            int temp = arr[i];
-            arr[i]=arr[idx];
-            arr[idx]=temp;
+            cashArr[0]=x;
+            System.out.println(Arrays.toString(cashArr));
+
 
         }
-        */
-        /*
-        버블정렬
-        for(int i =0; i<n-1; i++){
-
-            for(int j=0; j<n-i-1; j++){//뒤에 제일 큰 num이 있으니까 굳이 뒤를 계속할 필요없음
-                if(arr[j] > arr[j+1]){
-                    int temp=arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=temp;
-
-                }
-           }
-         */
-        /*
-        삽입정렬
-        for(int i =1; i<n; i++){
-            int temp=arr[i] ,j;
-            for(j=i-1; j>=0; j--) {
-                if (arr[j] > temp) {
-                    arr[j + 1] = arr[j];
-                } else {
-                    break;
-                }
-            }
-            arr[j+1] =temp;
-        }
-        */
-
-        for(int i=0; i<n-1; i++){
-                if(arr[i]==arr[i+1]){
-
-                    return "D";
-                }
-        }
-
-      return "U";
+        return cashArr;
     }
 
 
     public static void main(String[] args) throws IOException {
-
-
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine()," ");
+           StringTokenizer st = new StringTokenizer(br.readLine()," ");
 
-        int n =Integer.parseInt(st.nextToken());
-        int[] arr = new int[n];
+           int n = Integer.parseInt(st.nextToken());//캐시의 크기
+           int m =Integer.parseInt(st.nextToken());//실행될 캐시 값의 배열
+           int[] arr = new int[m];//캐시값 배열
+           st = new StringTokenizer(br.readLine()," ");
+           for(int i=0; i<m; i++){
 
-        st = new StringTokenizer(br.readLine()," ");
-        int i =0;
-        while(st.hasMoreTokens()){
-            arr[i]=Integer.parseInt(st.nextToken());
-            i++;
-        }
-
-        System.out.println(Main54.solution(n,arr));
-
-
-
-
-    }
+               arr[i]=Integer.parseInt(st.nextToken());
+           }
+           Main54 main53 = new Main54();
+      //  System.out.println(Arrays.toString(main53.solution(n,m,arr)));
+        main53.solution(n,m,arr);
+        /*5 9
+        1 2 3 2 6 2 3 5 7*/
+}
 }

@@ -7,32 +7,38 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-//버블정렬 오름차순
-//횟수가 줄어들어야한다.
-//큰 수가 제일 뒤로 계속 간다
+//선택정렬 오름차순
+//반복은 하지만 버블정렬처럼 바로 옆값을 확인을 반복하는게 아니라 idx와 비교
+//작은값을 찾아라 그것을 idx넣고 비교
 public class Main51 {
 
 
-    public int[] solution(int n, int[] arr) {
+    public int[] solution(int n, int[] arr){
 
-        for (int i = 0; i < n - 1; i++) {
 
-            for (int j = 0; j < n-i-1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+        for(int i=0; i<n-1; i++){
+            int idx = i;
 
-                }
+            for(int j=idx+1; j<n; j++){
+
+                 if(arr[j]<arr[idx]){
+                     idx=j;
+                 }
 
             }
+            swap(arr,i,idx);
 
         }
+        return arr;
+    }
 
+    public int[] swap(int[]arr,int i, int idx){
+        int temp =arr[i];
+       arr[i] = arr[idx];
+       arr[idx]=temp;
         return arr;
     }
     public static void main(String[] args) throws IOException {
-
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine()," ");
@@ -40,13 +46,12 @@ public class Main51 {
         int n = Integer.parseInt(st.nextToken());
         int[] arr = new int[n];
         st = new StringTokenizer(br.readLine()," ");
-        for(int i=0; i<n; i++){
 
+        for(int i =0; i<n; i++){
             arr[i]=Integer.parseInt(st.nextToken());
         }
-
-
-        Main51 main51 = new Main51();
-        System.out.println(Arrays.toString(main51.solution(n, arr)));
+        Main51 main50 = new Main51();
+       int[] solutionArr= main50.solution(n,arr);
+        System.out.println(Arrays.toString(solutionArr));
     }
 }

@@ -26,17 +26,13 @@ public class Student {
     public static void main(String[] args){
         Student student = new Student();
         Study study = new CodingStudy();
-        student.setStudy(study);
-
-        Student student1 = new Student();
         Study study1 = new EnglishStudy();
-        student1.setStudy(study1);
-        Student student2 = new Student();
 
 
-        student.study();
-        student1.study();
-        student2.study();
+
+        student.setStudy(study);
+        student.setStudy(study1);
+
 
     }
 

@@ -1,63 +1,82 @@
 package main.java.algorithm.package6;
 
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
-//좌표정렬
+//장난꾸러기
 public class Main56 {
 
-    //기본타입이면 그냥 sort되는데 Custom객체면 overriding해줘야함. 정렬 기준을 모르니까
-    public static class Point implements Comparable<Point>{
-        private int x;
-        private int y;
 
-        Point(int x, int y){
-            this.x=x;
-            this.y=y;
+    public List<Integer> solution(int n , int[] arr){
+
+//        for(int i =0; i<n; i++){
+////            int idx =i;
+////            for(int j=i+1; j<n; j++){
+////                if(arr[idx]>arr[j]){
+////                    idx=j;
+////                }
+////            }
+////            int temp =arr[i];
+////            arr[i]= arr[idx];
+////            arr[idx]=temp;
+////        }
+////
+////        for(int i=0; i<n-1; i++){
+////            for(int j=i; j<n-1-i; j++){
+////                if(arr[j]<arr[j+1]){
+////                    int temp = arr[j];
+////                    arr[j]=arr[j+1];
+////                    arr[j+1]=temp;
+////                }
+////            }
+////        }
+////
+        List<Integer> solutionList = new ArrayList<>();
+        int[] sortArr = arr.clone();
+        for(int i=1; i<n; i++){
+            int temp= arr[i],j;
+            for(j=i-1; j>=0; j--){
+                if(arr[j]>temp){
+                    arr[j+1] =arr[j];
+                }else{
+                    break;
+                }
+            }
+            arr[j+1] =temp;
         }
+        for(int i=0; i<n; i++){
 
-
-        @Override
-        public int compareTo(Point o) {
-            if(x == o.x){
-                return y-o.y;
-            }else{
-                return x-o.x;
+            if(arr[i] != sortArr[i]){
+                solutionList.add(i+1);
             }
         }
-
-        @Override
-        public String toString() {
-            return "Point{" +
-                    "x=" + x +
-                    ", y=" + y +
-                    '}';
-        }
+        return solutionList;
     }
-
-
 
     public static void main(String[] args) throws IOException {
 
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine()," ");
-
         int n = Integer.parseInt(st.nextToken());
-        List<Point> pointList = new ArrayList<>();
+        int[] arr = new int[n];
 
-        for(int i=0; i<n; i++){
-            st = new StringTokenizer(br.readLine()," ");
-            pointList.add(new Main56.Point(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
+        int i =0;
+        st = new StringTokenizer(br.readLine()," ");
 
+        while(st.hasMoreTokens()){
+            arr[i]= Integer.parseInt(st.nextToken());
+            i++;
         }
-        Collections.sort(pointList);
 
-        pointList.forEach(c-> System.out.println(c.x +" "+c.y));
 
+        Main56 main55 = new Main56();
+        main55.solution(n,arr).forEach(c-> System.out.print(c.intValue()+" "));
 
     }
 }

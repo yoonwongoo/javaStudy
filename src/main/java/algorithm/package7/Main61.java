@@ -2,23 +2,24 @@ package main.java.algorithm.package7;
 
 
 
-//10진수 N이 입력되면 n을 이진수로 변환하여 출력하라
+
+//재귀함수  자연수 n이 입력되면 재귀함수를 이용하여 1부터 n까지 출력하자
 public class Main61 {
 
-
     public void rf(int n){
+
         if(n==0) return;
-        else  {
-            rf(n/2);
-            System.out.print(n%2+" ");
+        else{
+            rf(n-1);
+            System.out.print(n+" ");
         }
 
-
     }
-    
-    
+
+
     public static void main(String[] args) {
-        Main61 main61 = new Main61();
-        main61.rf(10);
+        Main61 main60 = new Main61();
+        main60.rf(5);
     }
 }
+//스택 프레임을 생각하자
