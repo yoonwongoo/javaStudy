@@ -12,7 +12,7 @@ public class RandomDIceGame extends DiceGame{
     public void play() {
         int diceNumber = random.nextInt(6)+1;
 
-        Iterator<Player> iterable =  players.iterator();
+        Iterator<Player> iterable = players.iterator();
         System.out.println("결과는:::"+diceNumber);
         while (iterable.hasNext()){
             iterable.next().diceResult(diceNumber);

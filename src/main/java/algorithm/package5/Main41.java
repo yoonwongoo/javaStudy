@@ -5,9 +5,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
-import java.util.StringTokenizer;
 
 /*stack queue*/
+/*())(()) 괄호의 방식이 올바른가 */
 /*올바른 괄호*/
 public class Main41 {
 
@@ -15,16 +15,20 @@ public class Main41 {
         String answer = "YES";
         Stack<Character> stack = new Stack<>();
 
-        char[] chr = str.toCharArray();
-        for(char chars : chr){
+
+        for(char chars : str.toCharArray()){
             if(chars == '('){
                 stack.push(chars);
             }else{
-                if(!stack.empty()){
-                    stack.pop();
+                if(stack.empty()) {
+                    return "NO";
+                }else{
+                        stack.pop();
+                    }
+
                 }
             }
-        }
+
         if(stack.empty()){
             return answer;
         }else {
